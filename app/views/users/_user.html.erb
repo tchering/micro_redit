@@ -1,0 +1,8 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= link_to user.user_name,user %>
+    </h5>
+    <%= link_to "Delete", user, data: { turbo_method: :delete,turbo_confirm: "Are you sure?" },class:"btn btn-sm btn-danger" %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div>
+
+<% @users.each do |user| %>
+  <%= render user  %>
+<% end %>
+</div>
+
+<%= link_to "Create New Users", new_user_path %>

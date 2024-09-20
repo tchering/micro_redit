@@ -1,0 +1,9 @@
+<%= render "user", user: @user %>
+<% @user.posts.each do |post| %>
+  <%= render partial: "posts/post", locals: { post: post } %>
+<% end %>
+<%= link_to "Return", users_path %>
+<div class="form_for_post">
+  <%= render "posts/form", locals: { user: @user, post: Post.new } %>
+  <%# both are valid %>
+    <%# <%= render "posts/form", locals: { user: @user, post: @user.posts.build } %>

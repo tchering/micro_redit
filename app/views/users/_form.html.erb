@@ -1,0 +1,17 @@
+<div>
+  <%= form_with(model: user, local: true) do |form| %>
+    <% if user.errors.any? %>
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <div class="form_field">
+      <%= form.label :user_name %>
+      <%= form.text_field :user_name %>
+    </div>
+    <%= form.submit %>
+    <%= link_to "Return", users_path %>
+  <% end %>
+</div>

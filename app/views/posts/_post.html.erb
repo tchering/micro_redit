@@ -1,0 +1,28 @@
+<div class="card mb-3 shadow-sm">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="https://via.placeholder.com/" class="card-img" alt="Post Image">
+    </div>
+    <div class="col-md-8 d-flex ">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= post.title %>
+        </h5>
+        <p class="card-text">
+          <%= post.body %>
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Posted by <%= post.user.user_name %> on <%= post.created_at.strftime("%B %d, %Y") %>
+          </small>
+        </p>
+        <%= render 'comments/comment',post: post %>
+      </div>
+      <div class="d-flex flex-column">
+        <%= link_to "Delete Post" , user_post_path(post.user, post), data: { turbo_method: :delete,
+          turbo_confirm: "Are you sure?" }, class: "btn btn-sm btn-danger mt-3" %>
+        <%= link_to "Comment This post",new_user_post_comment_path(post.user,post)%>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

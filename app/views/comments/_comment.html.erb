@@ -1,0 +1,11 @@
+<p class="h5">Comments</p>
+<% post.comments.each do |comment| %>
+  <div class="card mb-2">
+    <div class="card-body">
+      <p class="card-text"><%= comment.text %></p>
+      <p class="card-text">
+        <small class="text-muted">Posted by <%= comment.user.user_name %></small>
+      </p>
+    </div>
+  </div>
+<% end %>

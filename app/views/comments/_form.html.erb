@@ -1,0 +1,10 @@
+<h1>form to comment in post </h1>
+<div class="form">
+  <%= form_with(model: [post.user,post,comment],local: true ) do |form| %>
+    <div class="form_field">
+      <%= form.label :text  %>
+      <%= form.text_field :text %>
+    </div>
+    <%= form.submit "Insert Comment" %>
+  <% end %>
+</div>
