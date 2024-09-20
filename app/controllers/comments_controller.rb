@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_user, only: [:create, :new]
-  before_action :set_post, only: [:create, :new]
+  before_action :set_user, only: [:create, :new, :destroy]
+  before_action :set_post, only: [:create, :new, :destroy]
 
   def new
     # @user = User.find(params[:user_id])
@@ -37,6 +37,11 @@ class CommentsController < ApplicationController
   # end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      flash[:success] = "Comment for #{@user.user_name} post has been deleted"
+      redirect_to user_path(@user)
+    end
   end
 
   private
